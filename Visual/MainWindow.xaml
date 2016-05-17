@@ -4,24 +4,38 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Visual"
-        mc:Ignorable="d"
+        mc:Ignorable="d" x:Name="wdw"
         xmlns:commands="clr-namespace:Visual"
-        Title="Dart game" Height="350" Width="525">
+        Title="Dart game" Height="350" Width="525" d:DataContext="{d:DesignInstance local:MainViewModel}">
     <!--<Window.CommandBindings>
         <CommandBinding Command="{x:Static commands:Commands.AimCommand}" Executed="AimCommand_Executed" CanExecute="AimCommand_CanExecute" />
         <CommandBinding Command="{x:Static commands:Commands.RandomCommand}" Executed="RandomCommand_Executed" CanExecute="RandomCommand_CanExecute" />
     </Window.CommandBindings>-->
 
     <Grid>
-        <Grid x:Name="PlayerSetupGrid" Visibility="Visible" ZIndex="1" Background="AliceBlue">
+        <Grid Visibility="{Binding PlayerSetupGridVisibility}" ZIndex="1" Background="AliceBlue" d:IsHidden="True">
             <StackPanel Orientation="Horizontal"  VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock  VerticalAlignment="Center" HorizontalAlignment="Center">How many players?</TextBlock>
-                <TextBox x:Name="txtPlayerNumber" MaxWidth="150" Width="50" Height="25" Margin="15,0,0,0"/>
-                <Button x:Name="btnStart" Content="Start Game" Margin="15,0,0,0" Click="BtnStart_OnClick" />
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">How many players?</TextBlock>
+                <TextBox Text="{Binding NumberOfPlayers}" MinWidth="50" Margin="20" />
+                <Button x:Name="btnStart" Content="Start Game" Margin="15,0,0,0" Command="{Binding StartCommand}" />
             </StackPanel>
         </Grid>
         <Grid>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Playing Now: "/>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Arrow #: "/>
+                    <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding ActivePlayer}" />
+                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding ArrowNumber}" />
+                </Grid>
                 <StackPanel Orientation="Horizontal">
                     <Button Content="20" Width="35" Height="35" FontSize="22" Command="{Binding AimCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" />
                     <Button Content="1" Width="35" Height="35" FontSize="22" Command="{Binding AimCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" />
@@ -48,10 +62,8 @@
                 </StackPanel>
                 <Button Content="Random" FontSize="22" Command="{Binding RandomCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0">
-                <TextBlock x:Name="ActivePlayer" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Active player" FontSize="22"/>
-            </StackPanel>
-            <TextBlock x:Name="ScoreBoard" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,90" Text="Scoreboard"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0"/>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,90" Text="{Binding ScoreboardText}" Background="White"/>
         </Grid>
 
     </Grid>

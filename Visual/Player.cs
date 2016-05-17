@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Visual
 {
-    class Player
+    public class Player
     {
-        public string Name { get; private set; }
-        private Turns t1, t2, t3;
-        private List<Turns> _turns;
+        public string Name { get; }
+        private Turns _t1, _t2, _t3;
+        private readonly List<Turns> _turns;
 
         /// <summary>
         /// Default cosntructor of Player. Sets player name and creates Turns list for the player.
@@ -31,13 +27,13 @@ namespace Visual
         /// <param name="thirdRound"></param>
         public void AddTurn(int firstRound, int secondRound, int thirdRound)
         {
-            t1 = new Turns(firstRound);
-            t2 = new Turns(secondRound);
-            t3 = new Turns(thirdRound);
+            _t1 = new Turns(firstRound);
+            _t2 = new Turns(secondRound);
+            _t3 = new Turns(thirdRound);
 
-            _turns.Add(t1);
-            _turns.Add(t2);
-            _turns.Add(t3);
+            _turns.Add(_t1);
+            _turns.Add(_t2);
+            _turns.Add(_t3);
 
         }
 
@@ -70,6 +66,11 @@ namespace Visual
                 s+= $"{_turns[i].GetScore()} ";
             }
             return s;
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }
