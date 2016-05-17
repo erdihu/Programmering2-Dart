@@ -3,6 +3,7 @@ using System.Windows.Input;
 
 namespace Visual
 {
+    //https://gist.github.com/JakeGinnivan/5166866
     public interface IRaiseCanExecuteChanged
     {
         void RaiseCanExecuteChanged();
@@ -20,6 +21,7 @@ namespace Visual
         }
     }
 
+    //https://gist.github.com/JakeGinnivan/5166898
     public class DelegateCommand : DelegateCommand<object>
     {
         public DelegateCommand(Action executeMethod)
