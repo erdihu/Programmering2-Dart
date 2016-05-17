@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prog2-Dart", "Prog2-Dart\Prog2-Dart.csproj", "{0CDA61EC-5A59-4A41-89DE-D5BE26592EDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visual", "Visual\Visual.csproj", "{8E30A198-B12C-4B1C-93DD-CCC73F2CAFBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CDA61EC-5A59-4A41-89DE-D5BE26592EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CDA61EC-5A59-4A41-89DE-D5BE26592EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CDA61EC-5A59-4A41-89DE-D5BE26592EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CDA61EC-5A59-4A41-89DE-D5BE26592EDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E30A198-B12C-4B1C-93DD-CCC73F2CAFBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E30A198-B12C-4B1C-93DD-CCC73F2CAFBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E30A198-B12C-4B1C-93DD-CCC73F2CAFBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E30A198-B12C-4B1C-93DD-CCC73F2CAFBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
